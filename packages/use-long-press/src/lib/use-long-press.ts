@@ -154,7 +154,7 @@ export function useLongPress<
       }
 
       // When touched trigger onStart and start timer
-      onStart?.(event, { context });
+      onStart?.(event, { context }, event.currentTarget);
 
       // Calculate position after calling 'onStart' so it can potentially change it
       startPosition.current = getCurrentPosition(event);
@@ -163,7 +163,7 @@ export function useLongPress<
 
       timer.current = setTimeout(() => {
         if (savedCallback.current) {
-          savedCallback.current(event, { context });
+          savedCallback.current(event, { context }, target.current!);
           isLongPressActive.current = true;
         }
       }, threshold);

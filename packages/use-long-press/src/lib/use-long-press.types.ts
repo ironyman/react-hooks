@@ -58,7 +58,8 @@ export enum LongPressCallbackReason {
  */
 export type LongPressCallback<Target extends Element = Element, Context = unknown> = (
   event: LongPressReactEvents<Target>,
-  meta: LongPressCallbackMeta<Context>
+  meta: LongPressCallbackMeta<Context>,
+  origTarget?: Target,
 ) => void;
 
 export type LongPressDomEvents = MouseEvent | TouchEvent | PointerEvent;
